@@ -12,21 +12,28 @@ export const projects: Project[] = [
 		description: 'Aplikasi pencatatan kehadiran siswa dengan rekap otomatis per bulan.',
 		stack: 'SvelteKit',
 		year: 2026,
-		href: 'https://github.com/nama-kamu/absensi'
+		href: 'https://github.com/Khoyru-Sho/absensi'
 	},
 	{
 		title: 'Landing Page UKM',
 		description: 'Halaman profil organisasi sekolah dengan formulir pendaftaran anggota.',
 		stack: 'Tailwind',
 		year: 2026,
-		href: 'https://github.com/nama-kamu/ukm'
+		href: 'https://github.com/Khoyru-Sho/ukm'
 	},
 	{
 		title: 'Dashboard Jaringan',
 		description: 'Pemantauan status perangkat lab sekolah secara real-time.',
 		stack: 'TypeScript',
 		year: 2026,
-		href: 'https://github.com/nama-kamu/dashboard'
+		href: 'https://github.com/Khoyru-Sho/dashboard'
+	},
+	{
+		title: 'Aplikasi To-Do List',
+		description: 'Aplikasi pencatatan tugas harian dengan notifikasi dan pengingat.',
+		stack: 'Svelte',
+		year: 2026,
+		href: 'https://github.com/Khoyru-Sho/todo'
 	}
 ];
 

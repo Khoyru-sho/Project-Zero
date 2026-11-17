@@ -8,15 +8,16 @@
 
 	let theme: Theme = $state('light');
 	let status: Status = $state('idle');
+	let nama = $state('');
 </script>
 
-<div class="min-h-dvh bg-bg text-ink {theme === 'dark' ? 'dark' : ''}">
+<div class="batik-shell min-h-dvh bg-bg text-ink {theme === 'dark' ? 'dark' : ''}">
 	<!-- nav -->
 	<header class="border-b border-line">
 		<div
 			class="mx-auto flex h-[60px] max-w-[1440px] items-center justify-between px-6 lg:h-[72px] lg:px-24"
 		>
-			<a href="/" class="text-[15px] font-semibold lg:text-base">nama.kamu</a>
+			<a href="/" class="text-[15px] font-semibold lg:text-base">{nama || 'nama.kamu'}</a>
 
 			<div class="flex items-center gap-2 lg:gap-8">
 				<nav class="hidden items-center gap-7 lg:flex">
@@ -87,12 +88,24 @@
 		<h1
 			class="text-[62px] leading-[0.88] font-medium tracking-[-1.6px] lg:text-[232px] lg:tracking-[-9px]"
 		>
-			Nama Kamu
+			{nama || 'Nama Kamu'}
 		</h1>
+
+		<div class="mt-6 max-w-[420px]">
+			<label for="nama" class="mb-2 block font-mono text-[11px] tracking-[1.1px] text-muted">
+				NAMA
+			</label>
+			<input
+				id="nama"
+				bind:value={nama}
+				placeholder="Ketik nama kamu"
+				class="h-12 w-full border border-line bg-bg px-3.5 text-[15px] outline-none placeholder:text-muted focus:border-primary focus:ring-1 focus:ring-primary"
+			/>
+		</div>
 
 		<div class="mt-7 flex flex-col gap-6">
 			<p class="max-w-[560px] text-[17px] leading-[1.6] text-muted lg:text-xl">
-				Siswa SMK jurusan RPL. Membangun antarmuka web yang cepat, rapi, dan mudah dipakai.
+				Siswa SMK jurusan PPLG. Membangun antarmuka web yang cepat, rapi, dan mudah dipakai.
 			</p>
 
 			<div class="flex items-center gap-3">
@@ -110,6 +123,23 @@
 				</a>
 			</div>
 
+			<div class="flex flex-col gap-3 pt-2 lg:flex-row lg:gap-4">
+				<div class="flex min-w-[160px] flex-col border border-line p-4">
+					<span class="font-mono text-[11px] tracking-[1.1px] text-muted">PROYEK</span>
+					<span class="mt-2 text-[28px] leading-none font-medium tracking-[-0.5px]">
+						{String(projects.length).padStart(2, '0')}
+					</span>
+				</div>
+				<div class="flex min-w-[160px] flex-col border border-line p-4">
+					<span class="font-mono text-[11px] tracking-[1.1px] text-muted">STACK</span>
+					<span class="mt-2 text-[24px] leading-none font-medium tracking-[-0.5px]">Svelte</span>
+				</div>
+				<div class="flex min-w-[160px] flex-col border border-line p-4">
+					<span class="font-mono text-[11px] tracking-[1.1px] text-muted">STATUS</span>
+					<span class="mt-2 text-[20px] leading-none font-medium tracking-[-0.5px]">Open</span>
+				</div>
+			</div>
+
 			<p class="font-mono text-[11px] tracking-[1.1px] text-muted">
 				TERSEDIA UNTUK PROYEK BARU — 2026
 			</p>
@@ -119,12 +149,12 @@
 	<!-- band -->
 	<div class="border-t border-line">
 		<img
-			src={theme === 'dark' ? '/images/band-dark.png' : '/images/band-light.png'}
+			src="/images/miaw.jpeg"
 			alt="Foto kegiatan lab RPL"
 			class="h-[220px] w-full object-cover lg:h-[420px]"
 		/>
 		<div class="mx-auto max-w-[1440px] px-6 py-4 lg:px-24">
-			<p class="font-mono text-[11px] tracking-[1.1px] text-muted">LAB RPL — SMK NEGERI 1 · 2026</p>
+			<p class="font-mono text-[11px] tracking-[1.1px] text-muted">LAB PPLG — SMK NEGERI 8 · 2026</p>
 		</div>
 	</div>
 
@@ -148,8 +178,13 @@
 
 			<div class="mt-7 flex flex-col items-start gap-8 lg:mt-10 lg:flex-row lg:gap-24">
 				<img
-					src={theme === 'dark' ? '/images/portrait-dark.png' : '/images/portrait-light.png'}
+					src="/images/Foto.jpeg"
 					alt="Foto profil"
+					data-theme={theme === 'dark' ? 'dark' : 'light'}
+					onerror={(event) => {
+						const target = event.currentTarget as HTMLImageElement;
+						target.src = target.dataset.theme === 'dark' ? '/images/portrait-dark.png' : '/images/portrait-light.png';
+					}}
 					class="h-[428px] w-full object-cover lg:h-[525px] lg:w-[420px]"
 				/>
 
@@ -336,16 +371,16 @@
 			<div
 				class="flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-6"
 			>
-				<a href="mailto:kamu@email.com" class="font-mono text-xs tracking-[1.1px] text-primary">
-					kamu@email.com
+				<a href="mailto:irushogeming@email.com" class="font-mono text-xs tracking-[1.1px] text-primary">
+					irushogeming@email.com
 				</a>
 				<div class="flex items-center gap-6">
 					<a href="#proyek" class="font-mono text-[11px] tracking-[1.1px] text-muted">PROYEK</a>
 					<a
-						href="https://github.com/nama-kamu"
+						href="https://github.com/Khoyru-Sho"
 						class="font-mono text-[11px] tracking-[1.1px] text-muted">GITHUB</a
 					>
-					<a href="mailto:kamu@email.com" class="font-mono text-[11px] tracking-[1.1px] text-muted">
+					<a href="mailto:irushogeming@email.com" class="font-mono text-[11px] tracking-[1.1px] text-muted">
 						EMAIL
 					</a>
 				</div>
