@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { enhance } from '$app/forms';
 	import { projects, profile } from '$lib/data';
 	import ProjectRow from '$lib/components/ProjectRow.svelte';
@@ -15,9 +16,9 @@
 	<!-- nav -->
 	<header class="border-b border-line">
 		<div
-			class="mx-auto flex h-[60px] max-w-[1440px] items-center justify-between px-6 lg:h-[72px] lg:px-24"
+			class="mx-auto flex h-15 max-w-360 items-center justify-between px-6 lg:h-18 lg:px-24"
 		>
-			<a href="/" class="text-[15px] font-semibold lg:text-base">{nama || 'nama.kamu'}</a>
+			<a href={resolve('/')} class="text-[15px] font-semibold lg:text-base">{nama || 'nama.kamu'}</a>
 
 			<div class="flex items-center gap-2 lg:gap-8">
 				<nav class="hidden items-center gap-7 lg:flex">
@@ -84,14 +85,14 @@
 	</header>
 
 	<!-- hero -->
-	<section class="mx-auto max-w-[1440px] px-6 pt-16 pb-14 lg:px-24 lg:pt-[120px]">
+	<section class="mx-auto max-w-360 px-6 pt-16 pb-14 lg:px-24 lg:pt-30">
 		<h1
 			class="text-[62px] leading-[0.88] font-medium tracking-[-1.6px] lg:text-[232px] lg:tracking-[-9px]"
 		>
 			{nama || 'Nama Kamu'}
 		</h1>
 
-		<div class="mt-6 max-w-[420px]">
+		<div class="mt-6 max-w-105">
 			<label for="nama" class="mb-2 block font-mono text-[11px] tracking-[1.1px] text-muted">
 				NAMA
 			</label>
@@ -104,7 +105,7 @@
 		</div>
 
 		<div class="mt-7 flex flex-col gap-6">
-			<p class="max-w-[560px] text-[17px] leading-[1.6] text-muted lg:text-xl">
+			<p class="max-w-140 text-[17px] leading-[1.6] text-muted lg:text-xl">
 				Siswa SMK jurusan PPLG. Membangun antarmuka web yang cepat, rapi, dan mudah dipakai.
 			</p>
 
@@ -124,17 +125,17 @@
 			</div>
 
 			<div class="flex flex-col gap-3 pt-2 lg:flex-row lg:gap-4">
-				<div class="flex min-w-[160px] flex-col border border-line p-4">
+				<div class="flex min-w-40 flex-col border border-line p-4">
 					<span class="font-mono text-[11px] tracking-[1.1px] text-muted">PROYEK</span>
 					<span class="mt-2 text-[28px] leading-none font-medium tracking-[-0.5px]">
 						{String(projects.length).padStart(2, '0')}
 					</span>
 				</div>
-				<div class="flex min-w-[160px] flex-col border border-line p-4">
+				<div class="flex min-w-40 flex-col border border-line p-4">
 					<span class="font-mono text-[11px] tracking-[1.1px] text-muted">STACK</span>
 					<span class="mt-2 text-[24px] leading-none font-medium tracking-[-0.5px]">Svelte</span>
 				</div>
-				<div class="flex min-w-[160px] flex-col border border-line p-4">
+				<div class="flex min-w-40 flex-col border border-line p-4">
 					<span class="font-mono text-[11px] tracking-[1.1px] text-muted">STATUS</span>
 					<span class="mt-2 text-[20px] leading-none font-medium tracking-[-0.5px]">Open</span>
 				</div>
@@ -151,16 +152,16 @@
 		<img
 			src="/images/miaw.jpeg"
 			alt="Foto kegiatan lab RPL"
-			class="h-[220px] w-full object-cover lg:h-[420px]"
+			class="h-55 w-full object-cover lg:h-105"
 		/>
-		<div class="mx-auto max-w-[1440px] px-6 py-4 lg:px-24">
+		<div class="mx-auto max-w-360 px-6 py-4 lg:px-24">
 			<p class="font-mono text-[11px] tracking-[1.1px] text-muted">LAB PPLG — SMK NEGERI 8 · 2026</p>
 		</div>
 	</div>
 
 	<!-- proyek -->
 	<section id="proyek" class="border-t border-line">
-		<div class="mx-auto max-w-[1440px] px-6 pt-5 pb-14 lg:px-24 lg:pb-24">
+		<div class="mx-auto max-w-360 px-6 pt-5 pb-14 lg:px-24 lg:pb-24">
 			<p class="font-mono text-[11px] tracking-[1.1px]">PROYEK</p>
 
 			<div class="mt-7 flex flex-col divide-y divide-line lg:mt-10">
@@ -173,7 +174,7 @@
 
 	<!-- tentang -->
 	<section id="tentang" class="border-t border-line">
-		<div class="mx-auto max-w-[1440px] px-6 pt-5 pb-14 lg:px-24 lg:pb-24">
+		<div class="mx-auto max-w-360 px-6 pt-5 pb-14 lg:px-24 lg:pb-24">
 			<p class="font-mono text-[11px] tracking-[1.1px]">TENTANG</p>
 
 			<div class="mt-7 flex flex-col items-start gap-8 lg:mt-10 lg:flex-row lg:gap-24">
@@ -185,16 +186,16 @@
 						const target = event.currentTarget as HTMLImageElement;
 						target.src = target.dataset.theme === 'dark' ? '/images/portrait-dark.png' : '/images/portrait-light.png';
 					}}
-					class="h-[428px] w-full object-cover lg:h-[525px] lg:w-[420px]"
+					class="h-107 w-full object-cover lg:h-131.25 lg:w-105"
 				/>
 
 				<div class="flex w-full flex-col gap-7">
-					<p class="max-w-[520px] text-[17px] leading-[1.6] text-muted lg:text-xl">
+					<p class="max-w-130 text-[17px] leading-[1.6] text-muted lg:text-xl">
 						{profile.bio}
 					</p>
 
 					<div class="flex flex-col divide-y divide-line">
-						{#each profile.facts as fact}
+						{#each profile.facts as fact (fact.label)}
 							<div class="flex items-center justify-between gap-8 py-4">
 								<span class="font-mono text-[11px] tracking-[1.1px] text-muted">
 									{fact.label}
@@ -207,9 +208,9 @@
 					<div class="flex flex-col gap-3">
 						<span class="font-mono text-[11px] tracking-[1.1px] text-muted">KEAHLIAN</span>
 						<div class="flex flex-wrap gap-2">
-							{#each profile.skills as skill}
+							{#each profile.skills as skill (skill)}
 								<span
-									class="border border-line px-2.5 py-[7px] font-mono text-[11px] tracking-[1.1px] text-muted"
+									class="border border-line px-2.5 py-1.75 font-mono text-[11px] tracking-[1.1px] text-muted"
 								>
 									{skill}
 								</span>
@@ -223,11 +224,11 @@
 
 	<!-- kontak -->
 	<section id="kontak" class="border-t border-line">
-		<div class="mx-auto max-w-[1440px] px-6 pt-5 pb-14 lg:px-24 lg:pb-24">
+		<div class="mx-auto max-w-360 px-6 pt-5 pb-14 lg:px-24 lg:pb-24">
 			<p class="font-mono text-[11px] tracking-[1.1px]">KONTAK</p>
 
 			<div class="mt-7 flex flex-col gap-8 lg:mt-10 lg:flex-row lg:gap-24">
-				<p class="max-w-[420px] text-[17px] leading-[1.6] text-muted lg:text-xl">
+				<p class="max-w-105 text-[17px] leading-[1.6] text-muted lg:text-xl">
 					Punya pertanyaan atau ingin bekerja sama? Kirim pesan.
 				</p>
 
@@ -241,7 +242,7 @@
 							status = result.type === 'success' ? 'success' : 'error';
 						};
 					}}
-					class="flex w-full flex-col gap-4 lg:w-[440px] lg:shrink-0"
+					class="flex w-full flex-col gap-4 lg:w-110 lg:shrink-0"
 				>
 					<label class="flex flex-col gap-2">
 						<span class="font-mono text-[11px] tracking-[1.1px] text-muted">NAMA</span>
@@ -273,7 +274,7 @@
 							required
 							rows="5"
 							placeholder="Tulis pesan kamu di sini"
-							class="min-h-[120px] w-full border border-line bg-bg px-3.5 py-3 text-[15px] outline-none placeholder:text-muted focus:border-primary focus:ring-1 focus:ring-primary"
+							class="min-h-30 w-full border border-line bg-bg px-3.5 py-3 text-[15px] outline-none placeholder:text-muted focus:border-primary focus:ring-1 focus:ring-primary"
 						></textarea>
 					</label>
 
@@ -361,9 +362,9 @@
 
 	<!-- footer -->
 	<footer class="border-t border-line">
-		<div class="mx-auto flex max-w-[1440px] flex-col gap-10 px-6 py-14 lg:px-24">
+		<div class="mx-auto flex max-w-360 flex-col gap-10 px-6 py-14 lg:px-24">
 			<p
-				class="max-w-[640px] text-[34px] leading-[1.05] font-medium tracking-[-0.6px] lg:text-[48px] lg:tracking-[-1.2px]"
+				class="max-w-160 text-[34px] leading-[1.05] font-medium tracking-[-0.6px] lg:text-[48px] lg:tracking-[-1.2px]"
 			>
 				Mari membangun sesuatu.
 			</p>
@@ -371,16 +372,20 @@
 			<div
 				class="flex flex-col items-start gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-6"
 			>
-				<a href="mailto:irushogeming@email.com" class="font-mono text-xs tracking-[1.1px] text-primary">
-					irushogeming@email.com
+				<a href="mailto:kamu@email.com" class="font-mono text-xs tracking-[1.1px] text-primary">
+					kamu@email.com
 				</a>
 				<div class="flex items-center gap-6">
 					<a href="#proyek" class="font-mono text-[11px] tracking-[1.1px] text-muted">PROYEK</a>
 					<a
 						href="https://github.com/Khoyru-Sho"
-						class="font-mono text-[11px] tracking-[1.1px] text-muted">GITHUB</a
+						target="_blank"
+						rel="noreferrer"
+						class="font-mono text-[11px] tracking-[1.1px] text-muted"
 					>
-					<a href="mailto:irushogeming@email.com" class="font-mono text-[11px] tracking-[1.1px] text-muted">
+						GITHUB
+					</a>
+					<a href="mailto:kamu@email.com" class="font-mono text-[11px] tracking-[1.1px] text-muted">
 						EMAIL
 					</a>
 				</div>
